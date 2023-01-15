@@ -166,7 +166,7 @@ export default function Home() {
                       initial={{ y: 30, opacity: 0, scale: 1 }}
                     >
                       <div className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl relative uppercase font-bold tracking-tighter italic text-white flex">
-                        <div className="w-[155px] sm:w-[235px] md:w-[315px] lg:w-[410px] block relative">
+                        <div className="w-[160px] sm:w-[240px] md:w-[320px] lg:w-[410px] block relative">
                           <span className="text-right w-full">
                             <span className="absolute right-0">
                               <motion.span
