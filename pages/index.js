@@ -2,7 +2,6 @@ import Head from 'next/head'
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from "framer-motion";
 import Image from 'next/image'
-import Script from 'next/script'
 import NewsletterSubscribe from '../components/NewsletterSubscribe';
 
 const texts = ["Under", "Swim", "Active"];
@@ -156,12 +155,6 @@ export default function Home() {
           )}
         </AnimatePresence>
       </main>
-      <Script
-        src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"
-        onReady={() => {
-          (function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';fnames[6]='FULLNAME';ftypes[6]='text';}(jQuery));var $mcj = jQuery.noConflict(true);
-        }}
-      />
     </>
   )
 }
