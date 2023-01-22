@@ -50,12 +50,10 @@ export default function Thanks() {
                   >
                     <div className="pt-0">
                       <div className="px-8">
-                        <h3 className="text-xl md:text-xl uppercase font-light tracking-wide italic text-gray-500 text-center">
+                        <h3 className="text-xl md:text-xl uppercase font-light tracking-wide italic text-gray-500 text-center mb-4">
                           Thank you for subscribing
                         </h3>
-                        <div className="m-auto mt-2 max-w-xs text-sm text-gray-900 text-center mb-4">
-                          <p>Sign up below for exclusive updates, sneak peeks, and be first in line for launch.</p>
-                        </div>
+             
                         <div className="text-center text-gray-300">
                           <Link href="https://instagram.com/shopcalamia" className="inline text-gray-900 hover:text-gray-400">Instagram</Link>
                           {" | "}

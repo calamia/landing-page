@@ -9,6 +9,10 @@ const NewsletterForm = ( { status, message, onValidated }) => {
   const [ email, setEmail ] = useState(null);
   const [ name, setName ] = useState(null);
 
+  if (status === "success" && status !== "error" && !error) {
+    router.push('/thank-you')
+  }
+
   /**
    * Handle form submit.
    *
@@ -31,12 +35,6 @@ const NewsletterForm = ( { status, message, onValidated }) => {
       LNAME: lastName ? lastName : '',
       EMAIL: email
     });
-
-    console.log({ FULLNAME: name, firstName: firstName, lastName: lastName, EMAIL: email })
-
-    if (status === "success" && status !== "error" && !error) {
-      router.push('/thank-you')
-    }
 
     return email && email.indexOf("@") > -1 && isFormValidated;
   }
@@ -72,6 +70,7 @@ const NewsletterForm = ( { status, message, onValidated }) => {
      return decode(message);
     }
     const formattedMessage = result?.[1]?.trim() ?? null;
+  
     return formattedMessage ? decode( formattedMessage ) : null;
   }
 
