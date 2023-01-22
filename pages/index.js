@@ -1,7 +1,9 @@
 import Head from 'next/head'
 import { useState, useEffect } from 'react'
-import { motion, AnimatePresence, LayoutGroup, useCycle } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from 'next/image'
+import Script from 'next/script'
+import NewsletterSubscribe from '../components/NewsletterSubscribe';
 
 const texts = ["Under", "Swim", "Active"];
 const variants = {
@@ -27,16 +29,6 @@ const variants = {
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
   const [index, setIndex] = useState(0);
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     let next = index + 1;
-  //     if (next === texts.length) {
-  //       next = 0;
-  //     }
-  //     setIndex(next);
-  //   }, 3 * 1000);
-  // }, [index, setIndex]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -68,7 +60,7 @@ export default function Home() {
               exit={{ opacity: 0 }}
             >
               <div className="min-h-screen overflow-hidden bg-white grid grid-cols-1 content-center">
-                <div className="mx-auto max-w-lg -mt-16 relative z-10 content-center">
+                <div className="mx-auto max-w-lg -mt-8 md:-mt-16 relative z-10 content-center">
                   <motion.div
                       animate={{ y: 0, opacity: 1, scale: 1 }}
                       transition={{
@@ -77,7 +69,7 @@ export default function Home() {
                       }}
                       initial={{ y: 20, opacity: 0, scale: 1}}
                     >
-                      <div className="flex w-[180px] md:w-[240px] m-auto mb-8">
+                      <div className="flex w-[180px] md:w-[240px] m-auto mb-8 md:mb-16">
                         <span className="sr-only">CALA. MIA</span>
                         <Image
                           className="h-auto w-full m-auto"
@@ -96,42 +88,9 @@ export default function Home() {
                       }}
                       initial={{ y: 20, opacity: 0, scale: 1 }}
                     >
-                      <div className="mx-auto w-full max-w-l relative z-10 content-center">
-                        <div className="text-2xl md:text-3xl uppercase font-light tracking-wide italic text-gray-400 text-left">
-                          Coming Soon
-                        </div>
+                      <div className="pt-0">
+                        <NewsletterSubscribe />
                       </div>
-                      {/* <div className="bg-gray-50 sm:rounded-sm mt-6">
-                        <div className="px-4 py-5 sm:p-6">
-                          <h3 className="text-lg font-medium leading-6 text-gray-900">Launch early access</h3>
-                          <div className="mt-2 max-w-xl text-sm text-gray-500">
-                            <p>Enter your email and you&apos;ll be the first to get notified when we launch.</p>
-                          </div>
-
-                            <form className="mt-5">
-                              <div className="w-full">
-                                <label htmlFor="email" className="sr-only">
-                                  Email
-                                </label>
-                                <input
-                                  type="email"
-                                  name="email"
-                                  id="email"
-                                  required
-                                  className="block w-full rounded-md py-4 px-4 border-gray-300 focus:border-gray-500 focus:ring-gray-500 sm:text-sm"
-                                  placeholder="you@example.com"
-                                />
-                              </div>
-                              <button
-                                type="submit"
-                                className="mt-4 flex w-full items-center justify-center rounded-md border border-transparent bg-gray-900 py-5 px-8 text-base font-bold tracking-wider italic uppercase text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
-                              >
-                                Join Waitlist
-                              </button>
-                            </form>
-
-                          </div>
-                        </div> */}
                     </motion.div>
                 </div>
               </div>
@@ -166,7 +125,7 @@ export default function Home() {
                       initial={{ y: 30, opacity: 0, scale: 1 }}
                     >
                       <div className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl relative uppercase font-bold tracking-tighter italic text-white flex">
-                        <div className="w-[160px] sm:w-[240px] md:w-[320px] lg:w-[410px] block relative">
+                        <div className="w-[165px] sm:w-[245px] md:w-[320px] lg:w-[410px] block relative">
                           <span className="text-right w-full">
                             <span className="absolute right-0">
                               <motion.span
@@ -197,6 +156,13 @@ export default function Home() {
           )}
         </AnimatePresence>
       </main>
+      <Script
+        src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"
+        onReady={() => {
+          (function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';fnames[6]='FULLNAME';ftypes[6]='text';}(jQuery));var $mcj = jQuery.noConflict(true);
+        }}
+      />
     </>
   )
 }
+
