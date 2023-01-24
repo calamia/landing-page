@@ -51,7 +51,7 @@ export default function Thanks() {
                     <div className="pt-0">
                       <div className="px-8">
                         <h3 className="text-xl md:text-xl uppercase font-light tracking-wide italic text-gray-500 text-center mb-4">
-                          Thank you for subscribing
+                          Thank you
                         </h3>
              
                         <div className="text-center text-gray-300">
