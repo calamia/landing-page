@@ -38,7 +38,7 @@ export default function Home() {
       else {
         setIndex((index) => index + 1);
       }
-    }, 2000);
+    }, index == 0 ? 3000: 2000);
     return () => clearTimeout(timer);
   });
 
